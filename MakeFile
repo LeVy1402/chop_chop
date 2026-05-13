@@ -1,0 +1,8 @@
+.PHONY: buid_mock
+build_mock:
+	flutter pub run build_runner watch --delete-conflicting-outputs
+
+.PHONY: build_test
+build_test:
+	flutter pub run build_runner build --delete-conflicting-outputs
+	flutter test

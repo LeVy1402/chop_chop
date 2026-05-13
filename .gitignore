@@ -43,3 +43,39 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# iOS specific
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcworkspace/xcuserdata/
+**/ios/**/*.build/
+Pods/
+.symlinks/
+ios/**/*.framework
+
+# macOS specific
+macos/Pods/
+macos/**/*.build/
+
+# Android specific
+.gradle/
+/android/**/.gradle/
+/android/**/local.properties
+
+# Environment files
+.env
+
+# Generated files
+*.generated.dart
+*.freezed.dart
+*.config.dart
+
+# macOS
+**/.DS_Store
+
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcarchive
+*.ipa

@@ -1,0 +1,113 @@
+{
+  "total": 9,
+  "data": [
+    {
+      "_id": "6486923cec33e29cbbdf7ca7",
+      "nameDE": "Forretter",
+      "nameEN": "Appetizers",
+      "descriptionDE": "",
+      "ordinalNumber": 1,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1544025162-d76694265947",
+      "createdAt": "2023-06-12T03:34:20.793Z",
+      "updatedAt": "2023-06-12T03:47:07.949Z",
+      "__v": 0
+    },
+    {
+      "_id": "648692a8ec33e29cbbdf7cc2",
+      "nameDE": "Hovedretter Med Ris",
+      "nameEN": "Rice Bowls & Main Dishes",
+      "descriptionDE": "",
+      "ordinalNumber": 2,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1512058564366-18510be2db19",
+      "createdAt": "2023-06-12T03:36:08.263Z",
+      "updatedAt": "2023-07-31T08:25:58.429Z",
+      "__v": 0
+    },
+    {
+      "_id": "648692d5ec33e29cbbdf7ccf",
+      "nameDE": "Hovedretter Med Nudler",
+      "nameEN": "Noodle Specialties",
+      "descriptionDE": "",
+      "ordinalNumber": 3,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841",
+      "createdAt": "2023-06-12T03:36:53.137Z",
+      "updatedAt": "2023-07-31T08:26:19.881Z",
+      "__v": 0
+    },
+    {
+      "_id": "648692f7ec33e29cbbdf7cda",
+      "nameDE": "Vegetariske Retter",
+      "nameEN": "Vegetarian Delights",
+      "descriptionDE": "",
+      "ordinalNumber": 4,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1547592180-85f173990554",
+      "createdAt": "2023-06-12T03:37:27.672Z",
+      "updatedAt": "2023-07-31T08:26:47.391Z",
+      "__v": 0
+    },
+    {
+      "_id": "6486931aec33e29cbbdf7cec",
+      "nameDE": "Grillretter",
+      "nameEN": "Grilled Favorites",
+      "descriptionDE": "",
+      "ordinalNumber": 5,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1558030006-450675393462",
+      "createdAt": "2023-06-12T03:38:02.290Z",
+      "updatedAt": "2023-07-31T08:26:58.884Z",
+      "__v": 0
+    },
+    {
+      "_id": "6486988eec33e29cbbdf80ab",
+      "nameDE": "Ekstra Tilbehør",
+      "nameEN": "Side Dishes & Extras",
+      "descriptionDE": "",
+      "ordinalNumber": 6,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+      "createdAt": "2023-06-12T04:01:18.341Z",
+      "updatedAt": "2023-07-31T08:27:08.352Z",
+      "__v": 0
+    },
+    {
+      "_id": "64869918ec33e29cbbdf80eb",
+      "nameDE": "Fruit Tea L - 44kr",
+      "nameEN": "Large Fruit Tea - 44kr",
+      "descriptionDE": "",
+      "ordinalNumber": 7,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87",
+      "createdAt": "2023-06-12T04:03:36.070Z",
+      "updatedAt": "2023-07-31T08:27:52.923Z",
+      "__v": 0
+    },
+    {
+      "_id": "64869996ec33e29cbbdf811b",
+      "nameDE": "Milk Tea L - 48kr",
+      "nameEN": "Large Milk Tea - 48kr",
+      "descriptionDE": "",
+      "ordinalNumber": 8,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1558857563-b371033873b8",
+      "createdAt": "2023-06-12T04:05:42.147Z",
+      "updatedAt": "2023-07-31T08:28:07.961Z",
+      "__v": 0
+    },
+    {
+      "_id": "64869964ec33e29cbbdf810d",
+      "nameDE": "Ekstra Topping - 5kr",
+      "nameEN": "Extra Toppings - 5kr",
+      "descriptionDE": "",
+      "ordinalNumber": 9,
+      "isActive": true,
+      "url": "https://images.unsplash.com/photo-1526318896980-cf78c088247c",
+      "createdAt": "2023-06-12T04:04:52.749Z",
+      "updatedAt": "2023-07-31T09:09:23.843Z",
+      "__v": 0
+    }
+  ]
+}

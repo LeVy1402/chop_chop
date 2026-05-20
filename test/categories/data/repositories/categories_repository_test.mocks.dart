@@ -5,8 +5,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:chop_chop/data/repositories/categories_repository.dart' as _i2;
-import 'package:chop_chop/domain/entities/category.dart' as _i5;
+import 'package:chop_chop/categories/data/repositories/categories_repository.dart' as _i2;
+import 'package:chop_chop/categories/domain/entities/category.dart' as _i5;
 import 'package:chop_chop/utils/result.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;

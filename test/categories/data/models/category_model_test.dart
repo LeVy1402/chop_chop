@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:chop_chop/data/models/category_model.dart';
-import 'package:chop_chop/domain/entities/category.dart';
+import 'package:chop_chop/categories/data/models/category_model.dart';
+import 'package:chop_chop/categories/domain/entities/category.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../fixtures/fixture_reader.dart';
+import '../../../fixtures/fixture_reader.dart';
 
 void main() {
   final tCategoryModel = CategoryModel(

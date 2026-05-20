@@ -1,5 +1,5 @@
-import 'package:chop_chop/data/repositories/categories_repository.dart';
-import 'package:chop_chop/domain/entities/category.dart';
+import 'package:chop_chop/categories/data/repositories/categories_repository.dart';
+import 'package:chop_chop/categories/domain/entities/category.dart';
 import 'package:chop_chop/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

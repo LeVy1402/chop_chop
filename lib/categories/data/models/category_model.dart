@@ -1,4 +1,4 @@
-import 'package:chop_chop/domain/entities/category.dart';
+import 'package:chop_chop/categories/domain/entities/category.dart';
 
 class CategoryModel extends Category {
   const CategoryModel({required super.name, required super.imageUrl});

@@ -1,6 +1,6 @@
-import 'package:chop_chop/domain/repositories/get_categories_repository.dart';
-import '../../core/use_cases/use_case.dart';
-import '../../utils/result.dart';
+import 'package:chop_chop/categories/domain/repositories/get_categories_repository.dart';
+import '../../../core/use_cases/use_case.dart';
+import '../../../utils/result.dart';
 import '../entities/category.dart';
 
 class GetCategories extends UseCase<Result<List<Category>>> {

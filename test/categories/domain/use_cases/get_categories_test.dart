@@ -1,31 +1,33 @@
-import 'package:chop_chop/domain/entities/category.dart';
-import 'package:chop_chop/domain/repositories/get_categories_repository.dart';
+import 'package:chop_chop/categories/domain/entities/category.dart';
+import 'package:chop_chop/categories/domain/repositories/get_categories_repository.dart';
+import 'package:chop_chop/categories/domain/use_cases/get_categories.dart';
 import 'package:chop_chop/utils/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-// Tạo Mock class bằng mockito
 @GenerateMocks([GetCategoriesRepository])
-import 'get_categories_repository_test.mocks.dart';
+import 'get_categories_test.mocks.dart';
 
 void main() {
   provideDummy<Result<List<Category>>>(const Success<List<Category>>([]));
 
+  late GetCategories useCase;
   late MockGetCategoriesRepository mockGetCategoriesRepository;
 
   setUp(() {
     mockGetCategoriesRepository = MockGetCategoriesRepository();
+    useCase = GetCategories(mockGetCategoriesRepository);
   });
 
-  group('getCategories', () {
+  group('GetCategories', () {
     const tCategories = [
       Category(name: 'Pizza', imageUrl: 'pizza_url'),
       Category(name: 'Burger', imageUrl: 'burger_url'),
     ];
 
     test(
-      'should return Success with list of categories when the call is successful',
+      'should call repository.getCategories() when usecase is called',
       () async {
         // Arrange
         when(
@@ -33,31 +35,47 @@ void main() {
         ).thenAnswer((_) async => const Success(tCategories));
 
         // Act
-        final result = await mockGetCategoriesRepository.getCategories();
+        final result = await useCase();
 
         // Assert
         expect(result, isA<Success<List<Category>>>());
         expect((result as Success).value, tCategories);
-        verify(mockGetCategoriesRepository.getCategories());
+        verify(mockGetCategoriesRepository.getCategories()).called(1);
         verifyNoMoreInteractions(mockGetCategoriesRepository);
       },
     );
 
-    test('should return Failure when the call is unsuccessful', () async {
+    test('should return Failure when repository throws error', () async {
       // Arrange
-      const errorMessage = 'Server Error';
+      const errorMessage = 'Failed to fetch categories';
       when(
         mockGetCategoriesRepository.getCategories(),
       ).thenAnswer((_) async => const Failure(errorMessage));
 
       // Act
-      final result = await mockGetCategoriesRepository.getCategories();
+      final result = await useCase();
 
       // Assert
       expect(result, isA<Failure<List<Category>>>());
       expect((result as Failure).message, errorMessage);
-      verify(mockGetCategoriesRepository.getCategories());
+      verify(mockGetCategoriesRepository.getCategories()).called(1);
       verifyNoMoreInteractions(mockGetCategoriesRepository);
+    });
+
+    test('should handle empty categories list', () async {
+      // Arrange
+      const emptyCategories = <Category>[];
+      when(
+        mockGetCategoriesRepository.getCategories(),
+      ).thenAnswer((_) async => const Success(emptyCategories));
+
+      // Act
+      final result = await useCase();
+
+      // Assert
+      expect(result, isA<Success<List<Category>>>());
+      expect((result as Success).value, isEmpty);
+      verify(mockGetCategoriesRepository.getCategories()).called(1);
     });
   });
 }

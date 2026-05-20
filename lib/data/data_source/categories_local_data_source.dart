@@ -22,10 +22,10 @@ class CategoriesLocalDataSourceImpl implements CategoriesLocalDataSource {
   CategoriesLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
-  Future<void> cacheCategories(List<CategoryModel> categories) {
-    return sharedPreferences.setString(
+  Future<void> cacheCategories(List<CategoryModel> categories) async {
+    await sharedPreferences.setString(
       cachedCategoriesKey,
-      json.encode(categories),
+      json.encode(categories.map((e) => e.toJson()).toList()),
     );
   }
 
@@ -36,6 +36,7 @@ class CategoriesLocalDataSourceImpl implements CategoriesLocalDataSource {
       throw CacheException();
     }
     final decoded = json.decode(jsonString) as List<dynamic>;
+
     return decoded
         .map((e) => CategoryModel.fromJson(e as Map<String, dynamic>))
         .toList();

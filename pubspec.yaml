@@ -40,6 +40,8 @@ dependencies:
   internet_connection_checker_plus: 3.0.0
   shared_preferences: 2.5.5
   http: 1.6.0
+  flutter_bloc: 9.1.1
+  bloc_test: 10.0.0
 
 dev_dependencies:
   flutter_test:

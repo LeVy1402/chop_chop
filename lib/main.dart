@@ -1,17 +1,30 @@
-import 'package:chop_chop/categories/presentation/pages/menu_page.dart';
-import 'package:chop_chop/theme/app_colors.dart';
-import 'package:chop_chop/theme/app_typography.dart';
-import 'package:chop_chop/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+import 'categories/presentation/pages/menu_page.dart';
+import 'core/boostrap/auth_boostrap.dart';
+import 'core/di/service_locator.dart';
+import 'theme/app_colors.dart';
+import 'theme/app_typography.dart';
+import 'utils/constants.dart';
+import 'auth/data/auth_repository.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+
+  // Setup DI
+  await setupServiceLocator();
+
+  // Auth bootstrap
+  await AuthBootstrapper(getIt<AuthRepository>()).init();
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

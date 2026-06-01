@@ -6,11 +6,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-@GenerateMocks([GetCategoriesRepository])
 import 'get_categories_test.mocks.dart';
 
+@GenerateMocks([GetCategoriesRepository])
 void main() {
-  provideDummy<Result<List<Category>>>(const Success<List<Category>>([]));
+  setUpAll(() {
+    provideDummy<Result<List<Category>>>(const Success<List<Category>>([]));
+  });
 
   late GetCategories useCase;
   late MockGetCategoriesRepository mockGetCategoriesRepository;
@@ -76,6 +78,52 @@ void main() {
       expect(result, isA<Success<List<Category>>>());
       expect((result as Success).value, isEmpty);
       verify(mockGetCategoriesRepository.getCategories()).called(1);
+      verifyNoMoreInteractions(mockGetCategoriesRepository);
     });
+
+    test('should return result from repository without modification', () async {
+      // Arrange
+      when(
+        mockGetCategoriesRepository.getCategories(),
+      ).thenAnswer((_) async => const Success(tCategories));
+
+      // Act
+      final result = await useCase.call();
+
+      // Assert
+      expect(result, isA<Success<List<Category>>>());
+      expect((result as Success).value, equals(tCategories));
+    });
+
+    test('should propagate error message from repository', () async {
+      // Arrange
+      const errorMessage = 'Network error occurred';
+      when(
+        mockGetCategoriesRepository.getCategories(),
+      ).thenAnswer((_) async => const Failure(errorMessage));
+
+      // Act
+      final result = await useCase();
+
+      // Assert
+      expect(result, isA<Failure<List<Category>>>());
+      expect((result as Failure).message, equals(errorMessage));
+    });
+
+    test(
+      'should call repository getCategories exactly once per usecase call',
+      () async {
+        // Arrange
+        when(
+          mockGetCategoriesRepository.getCategories(),
+        ).thenAnswer((_) async => const Success(tCategories));
+
+        // Act
+        await useCase();
+
+        // Assert
+        verify(mockGetCategoriesRepository.getCategories()).called(1);
+      },
+    );
   });
 }
